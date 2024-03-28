@@ -8,7 +8,7 @@ import {
   Heading,
   Text
 } from '@gluestack-ui/themed'
-import { Link, router } from 'expo-router'
+import { Href, Link, router } from 'expo-router'
 
 type FeatureLink = {
   id: number
@@ -22,7 +22,7 @@ const data: FeatureLink[] = [
     id: 1,
     title: 'Conduit Fill',
     description: 'Description for the first feature',
-    link: '/fill'
+    link: '/features/fill'
   },
   {
     id: 2,
@@ -35,20 +35,16 @@ const data: FeatureLink[] = [
 const renderItem = ({ item }: { item: FeatureLink }) => {
   return (
     <Box width='$1/2'>
-      
-        <Pressable onPress={
-            () => {
-                router.push(item.link)
-            }
-        }>
-          <Card size='sm' variant='elevated' m='$3'>
-            <Heading size='md'>
-              {item.title}
-            </Heading>
-            <Text size='sm'>{item.description}</Text>
-          </Card>
-        </Pressable>
-      
+      <Pressable onPress={
+        () => {
+          router.push(item.link)
+        }
+      }>
+        <Card size='sm' variant='elevated' m='$3'>
+          <Heading size='md'>{item.title}</Heading>
+          <Text size='sm'>{item.description}</Text>
+        </Card>
+      </Pressable>
     </Box>
   )
 }
@@ -59,7 +55,7 @@ const TwoPerRowFlatList = () => {
 
 export default function FeatureLinks() {
   return (
-    <Box width='$full'>
+    <Box width='$full' flex={1}>
       <TwoPerRowFlatList />
     </Box>
   )
