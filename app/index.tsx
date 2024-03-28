@@ -1,31 +1,43 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import EditScreenInfo from '@/components/EditScreenInfo'
+import {  View } from '@/components/Themed'
+import { Box, Button, ButtonText, Card, Heading, Text } from '@gluestack-ui/themed'
+import FeatureLinks from '@/components/FeatureLinks'
 
-export default function TabOneScreen() {
+export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <Box style={styles.container}>
+      <Card size='md' variant='elevated' m='$3'>
+        <Heading mb='$1' size='md'>
+          Electrician Calculator
+        </Heading>
+        <Text size='sm'>Welcome</Text>
+      </Card>
       <Text style={styles.title}>Home</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/index.tsx" />
-    </View>
-  );
+      {/* <EditScreenInfo path="/app/screens/HomeScreen.tsx" /> */}
+      <FeatureLinks/>
+
+      <Button>
+        <ButtonText>Hello world</ButtonText>
+      </Button>
+    </Box>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 25,
+    fontWeight: 'bold'
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
-  },
-});
+    width: '80%'
+  }
+})
